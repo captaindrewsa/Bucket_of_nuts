@@ -4,7 +4,7 @@ from tqdm import tqdm
 
 
 def benchmark(text):
-    """Декоратор для бенчмарка функций"""
+    """Декоратор для бенчмарка функций."""
     
     def decorator(func):
         import time
