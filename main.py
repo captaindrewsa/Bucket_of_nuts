@@ -14,12 +14,21 @@ def benchmark(text):
             func(*args, **kwargs)
             end = time.time()
             print(f"[*] {text}: {end-start} секунд.")
+<<<<<<< HEAD
             
+=======
+
+
+>>>>>>> main
         return wrapper
     return decorator
 
 class Bucket:
+<<<<<<< HEAD
     """Главный класс. Создает модель с нодами и обеспечивает контроль над ним."""
+=======
+    """Главный класс. Создает модель с нодами и обеспечивает контроль над ним.  """
+>>>>>>> main
 
     def __init__(self, count_nut_bolt:int) -> None:
         """Инициализация нод"""
