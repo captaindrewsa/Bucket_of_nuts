@@ -14,7 +14,7 @@ def benchmark(text):
             func(*args, **kwargs)
             end = time.time()
             print(f"[*] {text}: {end-start} секунд.")
-        
+            
         return wrapper
     return decorator
 
