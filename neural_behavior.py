@@ -14,7 +14,7 @@ class Neuron:
     def __init__(self, num_inputs, matrixsize):
         self.num_inputs = num_inputs # Ammount of inputs, int
         param = Param(matrixsize)
-        self.value, self.electricity = param.numbers(0.001 * np.random.randn(-9,9))
+        self.value, self.electricity = param.numbers(0.001 * np.random.randint(-10,10,matrixsize))
 
     def accumulation(self, inputs):
 
@@ -35,10 +35,11 @@ class Neuron:
 
 
 
-a = np.arange(9) + 1
+#a = np.arange(9) + 1.25
+a = np.random.randint(-10,10,(3,3))
 a = np.reshape(a, (3,3))
 print(np.linalg.det(a))
-a = np.array([a,a,a,a,a])
+a = np.array([a-1,a-3,a-2.3,a+1.2,a])
 
 neuron = Neuron(a.shape[0], (3,3))
 neuron.accumulation(a)
