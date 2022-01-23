@@ -22,7 +22,7 @@ class Neuron:
         self.defaults = param.numbers(0.01 * np.random.randint(-10,10,matrixsize))
 
         # Conditions:
-        self.fired = False
+        self.firing = False
 
 
 
@@ -46,16 +46,16 @@ class Neuron:
         Neural output
         
         returns:
-        fire - does this neuron fire now or not - bool
+        self.firing - is this neuron firng now or not - bool
         answer - kind of fire, inhibitory or excitatory - np.array (matrixsize)
         '''
         if self.electricity < 1 and self.electricity >-1:
-            self.fired = False
+            self.firing = False
             answer = None
         else:
-            self.fired = True
+            self.firing = True
             answer = self.value
-        return self.fired, answer
+        return self.firing, answer
 
 
     def exhaust(self):
@@ -63,11 +63,11 @@ class Neuron:
         Neural recovery, if transmission has been performed
         '''
         
-        if self.fired == True:
+        if self.firing == True:
             self.value, self.electricity = self.defaults
         else:
             pass
-        self.fired = False
+        self.firing = False
         return
 
 
