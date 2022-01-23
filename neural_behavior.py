@@ -14,12 +14,13 @@ class Neuron:
     def __init__(self, num_inputs, matrixsize):
         param = Param(matrixsize)
 
-        # Variable properties:
-        self.value, self.electricity = param.numbers(0.01 * np.random.randint(-10,10,matrixsize))
-        self.num_inputs = num_inputs # Ammount of inputs, int
-
         # Unvariable properties, cannot be changed during transmission:
         self.defaults = param.numbers(0.01 * np.random.randint(-10,10,matrixsize))
+
+        # Variable properties:
+        self.value, self.electricity = self.defaults
+        self.num_inputs = num_inputs # Ammount of inputs, int
+
 
         # Conditions:
         self.firing = False
