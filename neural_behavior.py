@@ -14,9 +14,16 @@ class Neuron:
     def __init__(self, num_inputs, matrixsize):
         self.num_inputs = num_inputs # Ammount of inputs, int
         param = Param(matrixsize)
+
+        # Variable properties:
         self.value, self.electricity = param.numbers(0.01 * np.random.randint(-10,10,matrixsize))
 
-        self.defaults = param.numbers(0.01 * np.random.randint(-10,10,matrixsize)) #default properties of a neuron, cannot be changed during transmission
+        # Unvariable properties, cannot be changed during transmission:
+        self.defaults = param.numbers(0.01 * np.random.randint(-10,10,matrixsize))
+
+        # Conditions:
+        self.fired = False
+
 
 
 
@@ -43,19 +50,25 @@ class Neuron:
         answer - kind of fire, inhibitory or excitatory - np.array (matrixsize)
         '''
         if self.electricity < 1 and self.electricity >-1:
-            fire = False
+            self.fired = False
             answer = None
         else:
-            fire = True
+            self.fired = True
             answer = self.value
-        return fire, answer
+        return self.fired, answer
 
 
     def exhaust(self):
         '''
-        Neural recovery, if transmission happened
+        Neural recovery, if transmission has been performed
         '''
-        pass
+        
+        if self.fired == True:
+            self.value, self.electricity = self.defaults
+        else:
+            pass
+        self.fired = False
+        return
 
 
     def params(self):
@@ -63,13 +76,14 @@ class Neuron:
 
 
 
-#a = np.arange(9) + 1.25
+
 a = np.random.randint(-10,10,(3,3)) *0.01
 a = np.reshape(a, (3,3))
-print(np.linalg.det(a))
 a = np.array([a-1,a-3,a-2.3,a+1.2,a])
 
 neuron = Neuron(a.shape[0], (3,3))
 neuron.accumulation(a)
 
 print(neuron.params())
+print(neuron.fire())
+neuron.exhaust()
