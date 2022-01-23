@@ -71,19 +71,30 @@ class Neuron:
         return
 
 
+    def cond_info(self):
+        '''
+        Just a function to see how neuron feels at the moment
+        '''
+        return self.firing, self.electricity
+
+
     def params(self):
         return {'value': self.value, 'electricity': self.electricity}
 
 
 
 
-a = np.random.randint(-10,10,(3,3)) *0.01
-a = np.reshape(a, (3,3))
+valuesize = (2,2)
+
+a = np.random.randint(-10,10,valuesize) *0.01
+a = np.reshape(a, valuesize)
 a = np.array([a-1,a-3,a-2.3,a+1.2,a])
 
-neuron = Neuron(a.shape[0], (3,3))
+neuron = Neuron(a.shape[0], valuesize)
+print(neuron.cond_info())
 neuron.accumulation(a)
-
-print(neuron.params())
-print(neuron.fire())
+#print(neuron.cond_info())
+neuron.fire()
+print(neuron.cond_info())
 neuron.exhaust()
+print(neuron.cond_info())
