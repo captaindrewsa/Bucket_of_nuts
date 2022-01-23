@@ -84,7 +84,7 @@ class Neuron:
 
 
 
-valuesize = (2,2)
+valuesize = (3,3)
 
 a = np.random.randint(-10,10,valuesize) *0.01
 a = np.reshape(a, valuesize)
