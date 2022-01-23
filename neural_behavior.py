@@ -14,7 +14,7 @@ class Neuron:
     def __init__(self, num_inputs, matrixsize):
         self.num_inputs = num_inputs # Ammount of inputs, int
         param = Param(matrixsize)
-        self.value, self.electricity = param.numbers(0.001 * np.random.randn(0,9))
+        self.value, self.electricity = param.numbers(0.001 * np.random.randn(-9,9))
 
     def accumulation(self, inputs):
 
