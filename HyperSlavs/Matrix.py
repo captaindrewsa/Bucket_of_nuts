@@ -27,9 +27,9 @@ class Matrix:
     def _create_Kernel_n(self):
         '''Генерирует случайное Kernel_n. Кратным 3'''
         count = self.deep_connect
-        Kernel_n = np.array([[[np.random.randint(self.size_matrix),np.random.randint(self.size_matrix),round(np.random.random(), 3)],
-                              [np.random.randint(self.size_matrix),np.random.randint(self.size_matrix),round(np.random.random(), 3)],
-                              [np.random.randint(self.size_matrix),np.random.randint(self.size_matrix),round(np.random.random(), 3)]] 
+        Kernel_n = np.array([[[np.random.randint(self.size_matrix, dtype=np.int64),np.random.randint(self.size_matrix, dtype=np.int64),round(np.random.random(), 3)],
+                              [np.random.randint(self.size_matrix, dtype=np.int64),np.random.randint(self.size_matrix, dtype=np.int64),round(np.random.random(), 3)],
+                              [np.random.randint(self.size_matrix, dtype=np.int64),np.random.randint(self.size_matrix, dtype=np.int64),round(np.random.random(), 3)]] 
                                for _ in range(count)])
         return Kernel_n
 
@@ -41,7 +41,10 @@ class Matrix:
     
     def _add_Kernel_p(self):
         '''Заполняет нодам Kernel_p на основе связей из Kernel_n'''
-        
-        pass
+        for row in self.matrix:
+            for elem in row:
+                
+                
+                pass
     
 
