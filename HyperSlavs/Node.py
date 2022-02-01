@@ -9,8 +9,8 @@ class Node:
 
     def __init__(self) -> None:
         """Инициализация базовых параметров нод"""
-        
-        self.Kernel = np.array([]) #Внутри будет Kernel_previous (дендриты) и Kernel-next(аксоны)
+
+        self.Kernel = 0 #Внутри будет Kernel_previous (дендриты) и Kernel-next(аксоны)
         '''Kernel содержит два подъядра: Kernel_previous и Kernel_next.
         Каждое из подъядер содержит множество Core, размерность которых в K_p-2x2, а в K_n-3x3.
         Core_p состоит из координат двух (максимум) предыдщуих нейронов.

@@ -1,7 +1,5 @@
-import imp
-import numpy as np
-from Kernel import Kernel
+from HyperSlavs.Matrix import Matrix
 
-class Hyper(Kernel):
+class Hyper(Matrix):
     '''Главный класс для настройки всей сети по грубым параметрам'''
-    pass
+    
